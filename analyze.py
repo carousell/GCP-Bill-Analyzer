@@ -33,7 +33,8 @@ def compute(fnames):
             for service_desc, val2 in val1.items():
                 for sku_desc, val3 in val2.items():
                     row = [project_name, service_desc, sku_desc]
-                    for month, cost in val3.items():
+                    for fname in fnames:
+                        cost = val3.get(fname.replace('.csv', ''), 0.0)
                         row.append(cost)
                     writer.writerow(row)
 
