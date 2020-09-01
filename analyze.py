@@ -28,8 +28,12 @@ def compute(fnames):
 
     for name, data in all_data.items():
         for row in data:
-            results[row[PROJ_NAME]][row[SERV_DESC]][row[SKU_DESC]][name]\
-                = row[COST]
+            try:
+                results[row[PROJ_NAME]][row[SERV_DESC]][row[SKU_DESC]][name]\
+                    += float(row[COST])
+            except:
+                results[row[PROJ_NAME]][row[SERV_DESC]][row[SKU_DESC]][name]\
+                    = float(row[COST])
 
     with open('results.csv', 'w', newline='') as csvfile:
         writer = csv.writer(csvfile, delimiter=',', quotechar='|',
