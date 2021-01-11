@@ -7,6 +7,14 @@ exported from the billing console, across Projects, Services and SKUs.
 - Output: CSV file `results.csv` with columns for cost of each Projects, Services, and SKUs
 
 
+## Warning For CSV Exports (Jan 2021)
+
+Note: As of Jan 2021, GCP has changed their CSV file to include additional data
+about currency, account name, etc. at the top and bottom of the CSV. You will
+need to manually remove those rows such the file is a proper CSV before this
+script will work.
+
+
 ## Usage
 
 ### Using Pipenv
